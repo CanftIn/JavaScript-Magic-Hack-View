@@ -1,8 +1,34 @@
-function u(t) {
+var c = document.querySelector("#c");
+c.width = 920;
+c.height = 1080;
+var S = Math.sin;
+var C = Math.cos;
+var T = Math.tan;
 
-    (F = Z => {
-        for (x.fillStyle = R(W = 1 / Z * 4e3, W / 2, W / 4), i = Z * Z * 2; n = i % Z, m = i / Z | 0, i--; n % 2 ^ m % 2 && x.fillRect((n - t % 2 - 1) * W, (S(t) + m - 1) * W, W, W));
-        Z && F(Z - 6)
-    })(36) //rm
+function R(r, g, b, a) {
+  a = a === undefined ? 1 : a;
+  return "rgba(" + (r | 0) + "," + (g | 0) + "," + (b | 0) + "," + a + ")";
+};
+var x = c.getContext("2d");
+var time = 0;
+var frame = 0;
+
+function u(t) {
+  for (c.width |= i = 50; i--;)[0, 4, 8].map(d => x.fillRect(0, 0, i, i, x.fillStyle = R(d * i), x.setTransform(S(s =
+    d * 8.9), C(s), S(s += 2.1), C(s), i * i, 99 + i * S(i + t))))
 }
-u(10)
+
+function loop() {
+  time = frame / 60;
+  if (time * 60 | 0 == frame - 1) {
+    time += 0.000001;
+  }
+  frame++;
+
+  try {
+    u(time);
+  } catch (e) {
+    throw e;
+  }
+}
+loop();
